@@ -1,12 +1,18 @@
-import os
 from pathlib import Path
+from os import getcwd
 
-def add_element(data: str, position: int):
-    position = 0
+name_file = '/db/db'
+
+def add_element(data: str, name_file: str):
     data = 'Konev'
-    name_file = '/db/db'
-    file_path = Path(os.getcwd() + name_file, os.getcwd() + name_file + '.txt')
+    file_path = Path(getcwd() + name_file, getcwd() + name_file + '.txt')
     with open(file_path, 'a', encoding="utf-8") as data_write:
         data_write.write(f'\n{data}')
 
-add_element('Konev',0)
+def read_element(name_file: str):
+    file_path = Path(getcwd() + name_file, getcwd() + name_file + '.txt')
+    with open(file_path, 'r', encoding="utf-8") as data_read:
+        return data_read.readlines()
+
+#add_element('Konev', name_file)
+print(read_element(name_file))
