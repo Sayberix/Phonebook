@@ -1,7 +1,6 @@
 from pathlib import Path
 from os import getcwd
-
-name_file = '/db/db'
+from parameters import name_file
 
 def add_element(data: str, name_file: str):
     data = 'Konev'
