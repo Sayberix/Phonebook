@@ -14,5 +14,9 @@ def get_all_element_list(list_phone_func: list) -> list:
     for i in range(len(list_phone_func)):
         print(get_element_list(list_phone_func,i))
 
+def add_element_in_list(text: str) -> str:
+    text += ';'
+    return text
+
 #get_element_list(list_phone,0)
 get_all_element_list(list_phone)
