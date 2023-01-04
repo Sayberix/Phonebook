@@ -21,14 +21,16 @@ def add_element_in_list(text: str) -> str:
     text += ';'
     return text
 
-# поиск слова по всему списку справочника и вывод его позиции
-def find_word_in_list(list_phone_func: list, text_word: str) -> tuple:
+# поиск слова по всему списку справочника и запись его позиции в список кортежей
+def find_word_in_list(list_phone_func: list, text_word: str) -> list[tuple]:
+    resault = []
     for i in range(len(list_phone_func)):
         entry = get_element_list(list_phone_func,i)
         for j in range(len(entry)):
             if entry[j] == text_word:
-                return (i, j)
-    return(-1, -1)
+                tuple_rec = (i, j)
+                resault.append(tuple_rec)
+    return resault
 
 #get_element_list(list_phone,0)
 #get_all_element_list(list_phone)
