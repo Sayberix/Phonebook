@@ -1,6 +1,10 @@
-import data_base as db
+#!/usr/bin/python
+ # -*- coding: utf-8 -*-
 
-name_file = '/db/db'
+import data_base as db
+from parameters import name_file
+
+#name_file = '/db/db'
 
 list_phone = []
 list_phone2 = []
