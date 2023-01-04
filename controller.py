@@ -7,8 +7,8 @@ from parameters import name_file
 list_phone = []
 list_phone = db.read_element(name_file)
 
-def get_element_list(list_phone_func: list, position: int) -> list:
-    return list_phone_func[position].split(';')
+def get_element_list(list_phone_func: list, position_in_list: int) -> list:
+    return list_phone_func[position_in_list].split(';')
 
 def get_all_element_list(list_phone_func: list) -> list:
     for i in range(len(list_phone_func)):
