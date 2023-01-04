@@ -1,3 +1,3 @@
 # содержит переменные и их описание
 
-name_file = '/db/db.txt'
+name_file = '/db/db'
