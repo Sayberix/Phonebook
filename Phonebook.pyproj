@@ -28,7 +28,7 @@
     <Compile Include="parameters.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="view.py" />
+    <Compile Include="user_interface.py" />
     <Compile Include="data_base.py" />
     <Compile Include="parameters.py" />
   </ItemGroup>
