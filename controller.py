@@ -11,10 +11,16 @@ list_phone = db.read_element(name_file)
 def get_element_list(list_phone_func: list, position_in_list: int) -> list:
     return list_phone_func[position_in_list].split(';')
 
-# получение всех записей строк в виде списка
-def get_all_element_list(list_phone_func: list) -> list:
-    for i in range(len(list_phone_func)):
-        print(get_element_list(list_phone_func,i))
+def column_header():
+    return ['Фамилия','Имя','Телефон','Описание']
+
+# представление в удобочитаемой форме
+def view_list(list_phone_func: list):
+    [print(list_phone_func[i], ' | ', end=' ') if i < len(list_phone_func) - 1 else print(list_phone_func[i], ' | ', '\n') for i in range(len(list_phone_func)) ]
+        
+# просмотр всех записей
+def view_all_list(list_phone_func: list):
+    [view_list(get_element_list(list_phone_func,i)) for i in range(len(list_phone_func))]
 
 # добавление записей в строку
 def add_element_in_list(text: str) -> str:
@@ -32,6 +38,11 @@ def find_word_in_list(list_phone_func: list, text_word: str) -> list[tuple]:
                 resault.append(tuple_rec)
     return resault
 
+view_list(column_header())
+view_all_list(list_phone)
+
+#view_list(get_all_element_list(list_phone))    ?
+
 #get_element_list(list_phone,0)
 #get_all_element_list(list_phone)
-print(find_word_in_list(list_phone,'Maxim'))
+#print(find_word_in_list(list_phone,'Maxim'))
