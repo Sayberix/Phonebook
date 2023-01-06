@@ -29,10 +29,7 @@ def add_element_in_list(text: str) -> str:
 
 def add_record_in_list():
     text = ''
-    text += str(input('Введите имя: ')) + add_element_in_list(text)
-    text += str(input('Введите фамилию: ')) + add_element_in_list(text)
-    text += str(input('Введите телефон: ')) + add_element_in_list(text)
-    text += str(input('Введите описание: '))
+    text += str(input('Введите имя: ')) + ';' + str(input('Введите фамилию: ')) + ';' + str(input('Введите телефон: ')) + ';' + str(input('Введите описание: '))
     db.add_element(text, name_file)
 
 # поиск слова по всему списку справочника и запись его позиции в список кортежей
