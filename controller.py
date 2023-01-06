@@ -29,7 +29,7 @@ def add_element_in_list(text: str) -> str:
 
 def add_record_in_list():
     text = ''
-    text += str(input('Введите имя: ')) + ';' + str(input('Введите фамилию: ')) + ';' + str(input('Введите телефон: ')) + ';' + str(input('Введите описание: '))
+    text += str(input('Введите фамилию: ')) + ';' + str(input('Введите имя: ')) + ';' + str(input('Введите телефон: ')) + ';' + str(input('Введите описание: '))
     db.add_element(text, name_file)
 
 # поиск слова по всему списку справочника и запись его позиции в список кортежей
@@ -39,7 +39,7 @@ def find_word_in_list(list_phone_func: list, text_word: str) -> list[tuple]:
         entry = get_element_list(list_phone_func,i)
         for j in range(len(entry)):
             if entry[j] == text_word:
-                tuple_rec = (i, j)
+                tuple_rec = (i, j)  # где i - это номер строки а j - номер записи в строке
                 resault.append(tuple_rec)
     return resault
 
