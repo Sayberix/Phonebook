@@ -1,3 +1,5 @@
+import controller as cntrl
+
 print("         Телефонный справочник:")
 print("Режимы работы с телефонным справочником:")
 print("1. Просмотр всего справочника")
@@ -9,3 +11,5 @@ n = int(input("Выберите режим работы с телефонным справочником: "))
 
 match n:
     case 1:
+        cntrl.get_all_element_list()
+    case 2:
