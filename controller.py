@@ -32,6 +32,24 @@ def add_record_in_list():
     text += str(input('Введите фамилию: ')) + ';' + str(input('Введите имя: ')) + ';' + str(input('Введите телефон: ')) + ';' + str(input('Введите описание: '))
     db.write_element('a', text, name_file)
 
+def delete_record_in_list(list_phone_func: list, text_word: str) -> str:
+    resault = ''
+    for i in range(len(list_phone_func)):
+        entry = get_element_list(list_phone_func,i)
+        for j in entry:
+            find_word = False
+            if text_word in j:
+                find_word = True
+                print(view_list(entry))
+                for_delete = 'Y'
+                for_delete = str(input('Вам нужна эта запись для удаления? (Y/n):'))
+                if for_delete == 'Y' or for_delete == "":
+                    print("Запись удалена!")
+                    break
+        if find_word == False:
+            resault += ";".join(entry) + '\n'
+    db.write_element('w', resault, name_file)
+
 # поиск слова по всему списку справочника и запись его позиции в список кортежей
 def find_word_in_list(list_phone_func: list, text_word: str) -> list[tuple]:
     resault = []
@@ -47,6 +65,8 @@ def find_word_in_list(list_phone_func: list, text_word: str) -> list[tuple]:
 #view_all_list(list_phone)
 
 add_record_in_list()
+
+#delete_record_in_list(list_phone,'Антон')
 
 #view_list(get_all_element_list(list_phone))    ?
 
