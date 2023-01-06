@@ -2,7 +2,6 @@ from pathlib import Path
 from parameters import name_file
 
 def add_element(data: str, name_file: str):
-    data = 'Konev'
     file_path = Path(name_file, name_file + '.txt')
     with open(file_path, 'a', encoding="utf-8") as data_write:
         data_write.write(f'\n{data}')
