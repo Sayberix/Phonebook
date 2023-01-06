@@ -27,11 +27,10 @@ def add_element_in_list(text: str) -> str:
     text += ';'
     return text
 
-def add_record_in_list():
-    text = ''
-    text += str(input('Введите фамилию: ')) + ';' + str(input('Введите имя: ')) + ';' + str(input('Введите телефон: ')) + ';' + str(input('Введите описание: '))
-    db.write_element('a', text, name_file)
+def add_record_in_list() -> str:
+    return str(input('Введите фамилию: ')) + ';' + str(input('Введите имя: ')) + ';' + str(input('Введите телефон: ')) + ';' + str(input('Введите описание: ')) + '\n'
 
+# удаление записи по ключевому слову
 def delete_record_in_list(list_phone_func: list, text_word: str) -> str:
     resault = ''
     for i in range(len(list_phone_func)):
@@ -45,6 +44,26 @@ def delete_record_in_list(list_phone_func: list, text_word: str) -> str:
                 for_delete = str(input('Вам нужна эта запись для удаления? (Y/n):'))
                 if for_delete == 'Y' or for_delete == "":
                     print("Запись удалена!")
+                    break
+        if find_word == False:
+            resault += ";".join(entry) + '\n'
+    db.write_element('w', resault, name_file)
+
+# редактирование записи по ключевому слову
+def editing_record_in_list(list_phone_func: list, text_word: str) -> str:
+    resault = ''
+    for i in range(len(list_phone_func)):
+        entry = get_element_list(list_phone_func,i)
+        for j in entry:
+            find_word = False
+            if text_word in j:
+                find_word = True
+                print(view_list(entry))
+                for_delete = 'Y'
+                for_delete = str(input('Вам нужна эта запись для редактирования? (Y/n):'))
+                if for_delete == 'Y' or for_delete == "":
+                    resault += add_record_in_list()
+                    print("Запись отредактирована!")
                     break
         if find_word == False:
             resault += ";".join(entry) + '\n'
@@ -64,9 +83,11 @@ def find_word_in_list(list_phone_func: list, text_word: str) -> list[tuple]:
 #view_list(column_header())
 #view_all_list(list_phone)
 
-add_record_in_list()
+#db.write_element('a', add_record_in_list(), name_file) # добавление записи
 
-#delete_record_in_list(list_phone,'Антон')
+#delete_record_in_list(list_phone,'Бортник')
+
+editing_record_in_list(list_phone,'Бортник')
 
 #view_list(get_all_element_list(list_phone))    ?
 
