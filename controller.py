@@ -23,10 +23,6 @@ def view_all_list(list_phone_func: list):
     [view_list(get_element_list(list_phone_func,i)) for i in range(len(list_phone_func))]
 
 # добавление записей в строку
-def add_element_in_list(text: str) -> str:
-    text += ';'
-    return text
-
 def add_record_in_list() -> str:
     return str(input('Введите фамилию: ')) + ';' + str(input('Введите имя: ')) + ';' + str(input('Введите телефон: ')) + ';' + str(input('Введите описание: ')) + '\n'
 
