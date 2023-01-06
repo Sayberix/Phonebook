@@ -19,6 +19,7 @@ def column_header():
 # представление в удобочитаемой форме
 def view_list():
     global list_phone
+    print(column_header())
     [print(list_phone[i], ' | ', end=' ') if i < len(list_phone) - 1 else print(list_phone[i], ' | ', '\n') for i in range(len(list_phone)) ]
         
 # просмотр всех записей
@@ -34,7 +35,7 @@ def enter_key_word() -> str:
     return str(input('Введите ключевое слово: '))
 
 # удаление записи по ключевому слову
-def delete_record_in_list(key_word = enter_key_word()) -> str:
+def delete_record_in_list(key_word = enter_key_word()) -> db.write_element:
     global list_phone
     resault = ''
     for i in range(len(list_phone)):
@@ -53,8 +54,20 @@ def delete_record_in_list(key_word = enter_key_word()) -> str:
             resault += ";".join(entry) + '\n'
     db.write_element('w', resault, name_file)
 
+def find_record_in_list(key_word = enter_key_word()):
+    global list_phone
+    resault = ''
+    for i in range(len(list_phone)):
+        entry = get_element_list(list_phone,i)
+        for j in entry:
+            find_word = False
+            if key_word in j:
+                find_word = True
+                print(view_list(entry))
+                #break
+
 # редактирование записи по ключевому слову
-def editing_record_in_list(key_word = enter_key_word()) -> str:
+def editing_record_in_list(key_word = enter_key_word()) -> db.write_element:
     global list_phone
     resault = ''
     for i in range(len(list_phone)):
