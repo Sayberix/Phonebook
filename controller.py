@@ -27,6 +27,14 @@ def add_element_in_list(text: str) -> str:
     text += ';'
     return text
 
+def add_record_in_list():
+    text = ''
+    text += str(input('Введите имя: ')) + add_element_in_list(text)
+    text += str(input('Введите фамилию: ')) + add_element_in_list(text)
+    text += str(input('Введите телефон: ')) + add_element_in_list(text)
+    text += str(input('Введите описание: '))
+    db.add_element(text, name_file)
+
 # поиск слова по всему списку справочника и запись его позиции в список кортежей
 def find_word_in_list(list_phone_func: list, text_word: str) -> list[tuple]:
     resault = []
@@ -38,8 +46,10 @@ def find_word_in_list(list_phone_func: list, text_word: str) -> list[tuple]:
                 resault.append(tuple_rec)
     return resault
 
-view_list(column_header())
-view_all_list(list_phone)
+#view_list(column_header())
+#view_all_list(list_phone)
+
+add_record_in_list()
 
 #view_list(get_all_element_list(list_phone))    ?
 
