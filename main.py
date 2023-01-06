@@ -1,3 +1,3 @@
-import user_interface as ui
+from user_interface import ui
 
-ui.ui()
+ui()
