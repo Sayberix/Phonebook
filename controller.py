@@ -44,12 +44,13 @@ def delete_record_in_list() -> db.write_element:
     key_word = enter_key_word()
     resault = ''
     for i in range(len(list_phone)):
-        entry = get_element_list(list_phone,i)
+        entry = get_element_list(i)
         for j in entry:
             find_word = False
             if key_word in j:
                 find_word = True
-                print(view_list(entry))
+                column_header()
+                view_list(entry)
                 for_delete = 'Y'
                 for_delete = str(input('Вам нужна эта запись для удаления? (Y/n):'))
                 if for_delete == 'Y' or for_delete == "":
@@ -79,12 +80,13 @@ def editing_record_in_list() -> db.write_element:
     key_word = enter_key_word()
     resault = ''
     for i in range(len(list_phone)):
-        entry = get_element_list(list_phone,i)
+        entry = get_element_list(i)
         for j in entry:
             find_word = False
             if key_word in j:
                 find_word = True
-                print(view_list(entry))
+                column_header()
+                view_list(entry)
                 for_delete = 'Y'
                 for_delete = str(input('Вам нужна эта запись для редактирования? (Y/n):'))
                 if for_delete == 'Y' or for_delete == "":

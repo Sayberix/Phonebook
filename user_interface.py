@@ -1,10 +1,11 @@
 #!/usr/bin/python
  # -*- coding: utf-8 -*-
 
-import sys
+from sys import exit
 import controller as cntrl
 
 def ui():
+    print("\n")
     print("         Телефонный справочник:")
     print("Режимы работы с телефонным справочником:")
     print("1. Просмотр всего справочника")
@@ -13,8 +14,10 @@ def ui():
     print("4. Редактирование данных")
     print("5. Удаление данных")
     print("6. Выход из справочника")
+    print("\n")
 
     n = int(input("Выберите режим работы с телефонным справочником: "))
+    print("\n")
 
     match n:
         case 1:
@@ -26,11 +29,13 @@ def ui():
         case 3:
             cntrl.add_record_in_list()
             ui()
-        #case 4:
-        #    editing_record_in_list()
-        #case 5:
-        #    delete_record_in_list()
+        case 4:
+            cntrl.editing_record_in_list()
+            ui()
+        case 5:
+            cntrl.delete_record_in_list()
+            ui()
         case 6:
-            sys.exit()
+            exit()
         case _:
             ui()
