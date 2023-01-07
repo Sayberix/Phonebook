@@ -2,7 +2,7 @@
  # -*- coding: utf-8 -*-
 
 import sys
-from controller import view_all_list
+import controller as cntrl
 
 def ui():
     print("         Телефонный справочник:")
@@ -18,11 +18,14 @@ def ui():
 
     match n:
         case 1:
-            view_all_list()
-        #case 2:
-        #    find_record_in_list()
-        #case 3:
-        #    add_record_in_list()
+            cntrl.view_all_list()
+            ui()
+        case 2:
+            cntrl.find_record_in_list()
+            ui()
+        case 3:
+            cntrl.add_record_in_list()
+            ui()
         #case 4:
         #    editing_record_in_list()
         #case 5:

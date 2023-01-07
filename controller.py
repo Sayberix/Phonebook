@@ -60,12 +60,13 @@ def find_record_in_list():
     key_word = enter_key_word()
     resault = ''
     for i in range(len(list_phone)):
-        entry = get_element_list(list_phone,i)
+        entry = get_element_list(i)
         for j in entry:
             find_word = False
             if key_word in j:
                 find_word = True
-                print(view_list(entry))
+                column_header()
+                view_list(entry)
                 #break
 
 # редактирование записи по ключевому слову
