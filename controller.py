@@ -27,9 +27,13 @@ def view_all_list():
     column_header()
     [view_list(get_element_list(i)) for i in range(len(list_phone))]
 
-# добавление записей в строку
-def add_record_in_list() -> str:
+# добавление записей в строку - универсальная ф-ция (для добавления и редактирования)
+def add_record_in_list_universal() -> str:
     return str(input('Введите фамилию: ')) + ';' + str(input('Введите имя: ')) + ';' + str(input('Введите телефон: ')) + ';' + str(input('Введите описание: ')) + '\n'
+
+def add_record_in_list():
+    db.write_element('a', add_record_in_list_universal(), name_file)
+    print('Запись добавлена!')
 
 def enter_key_word() -> str:
     return str(input('Введите ключевое слово: '))
@@ -84,7 +88,7 @@ def editing_record_in_list() -> db.write_element:
                 for_delete = 'Y'
                 for_delete = str(input('Вам нужна эта запись для редактирования? (Y/n):'))
                 if for_delete == 'Y' or for_delete == "":
-                    resault += add_record_in_list()
+                    resault += add_record_in_list_universal()
                     print("Запись отредактирована!")
                     break
         if find_word == False:
