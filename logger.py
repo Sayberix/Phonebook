@@ -11,26 +11,26 @@ def log_view_all_record():
     global name_file_log
     data = ''
     time = dt.now().strftime('%H:%M') + ";"
-    data = time + "view all records" + "\n"
+    data = time + " view all records" + "\n"
     db.write_element('a', data, name_file_log)
 
 # ф-ция логирования добавления записи
 def log_add_record(data):
     global name_file_log
     time = dt.now().strftime('%H:%M') + ";"
-    data = time + "adding an entry: " + data + "\n"
+    data = time + " adding an entry: " + data + "\n"
     db.write_element('a', data, name_file_log)
 
 # ф-ция логирования удаления записи
 def log_delete_record(data):
     global name_file_log
     time = dt.now().strftime('%H:%M') + ";"
-    data = time + "deleting an entry: " + data + "\n"
+    data = time + " deleting an entry: " + data + "\n"
     db.write_element('a', data, name_file_log)
 
 # ф-ция логирования редактирования записи
 def log_update_record(data):
     global name_file_log
     time = dt.now().strftime('%H:%M') + ";"
-    data = time + "record editing: " + data + "\n"
+    data = time + " record editing: " + data + "\n"
     db.write_element('a', data, name_file_log)
