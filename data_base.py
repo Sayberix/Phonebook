@@ -1,6 +1,6 @@
 from pathlib import Path
-from controller import name_file_db as name_file
-from controller import name_file_log as name_file
+#from parameters import name_file_db as name_file
+#from parameters import name_file_log as name_file
 
 def write_element(op: str, data: str, name_file: str):
     file_path = Path(name_file, name_file + '.txt')

@@ -25,6 +25,9 @@
     <Compile Include="controller.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="logger.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="parameters.py">
       <SubType>Code</SubType>
     </Compile>
