@@ -2,10 +2,11 @@
  # -*- coding: utf-8 -*-
 
 import data_base as db
-from parameters import name_file
+from parameters import name_file_db
+from parameters import name_file_log
 
 def init_db():
-    return db.read_element(name_file)
+    return db.read_element(name_file_db)
 
 # получение записи строки в виде списка (внутренняя ф-ция)
 def get_element_list(position_in_list: int) -> list:
@@ -32,7 +33,7 @@ def add_record_in_list_universal() -> str:
     return str(input('Введите фамилию: ')) + ';' + str(input('Введите имя: ')) + ';' + str(input('Введите телефон: ')) + ';' + str(input('Введите описание: ')) + '\n'
 
 def add_record_in_list():
-    db.write_element('a', add_record_in_list_universal(), name_file)
+    db.write_element('a', add_record_in_list_universal(), name_file_db)
     print('Запись добавлена!')
 
 def enter_key_word() -> str:
@@ -58,7 +59,7 @@ def delete_record_in_list() -> db.write_element:
                     break
         if find_word == False:
             resault += ";".join(entry) + '\n'
-    db.write_element('w', resault, name_file)
+    db.write_element('w', resault, name_file_db)
 
 def find_record_in_list():
     list_phone = init_db()
@@ -95,7 +96,7 @@ def editing_record_in_list() -> db.write_element:
                     break
         if find_word == False:
             resault += ";".join(entry) + '\n'
-    db.write_element('w', resault, name_file)
+    db.write_element('w', resault, name_file_db)
 
 # поиск слова по всему списку справочника и запись его позиции в список кортежей
 #def find_word_in_list(key_word = enter_key_word()) -> list[tuple]:
