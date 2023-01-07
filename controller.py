@@ -12,19 +12,19 @@ def get_element_list(position_in_list: int) -> list:
     list_phone = init_db()
     return list_phone[position_in_list].split(';')
 
-# шапка колонок
-def column_header():
-    return ['Фамилия','Имя','Телефон','Описание']
-
 # представление в удобочитаемой форме
-def view_list(list_phone: list):
+def view_list(list_phone: list) -> print():
     #list_phone = init_db()
     [print(list_phone[i], ' | ', end=' ') if i < len(list_phone) - 1 else print(list_phone[i], ' | ', '\n') for i in range(len(list_phone)) ]
+
+    # шапка колонок
+def column_header():
+    return view_list(['Фамилия','Имя','Телефон','Описание'])
         
 # просмотр всех записей
 def view_all_list():
     list_phone = init_db()
-    print(column_header())
+    column_header()
     [view_list(get_element_list(i)) for i in range(len(list_phone))]
 
 # добавление записей в строку
@@ -102,7 +102,7 @@ def editing_record_in_list() -> db.write_element:
 #                resault.append(tuple_rec)
 #    return resault
 
-#view_list(column_header())
+#column_header()
 #view_all_list(list_phone)
 
 #db.write_element('a', add_record_in_list(), name_file) # добавление записи
